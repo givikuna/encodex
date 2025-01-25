@@ -1,9 +1,9 @@
-import { EFloat } from "../../EFloat";
 import { ENumber } from "../../ENumber";
+import { Unit } from "../Unit";
 import { Degree } from "./Degree";
 
-export class Radian extends EFloat {
-    constructor(value: ConstructorParameters<typeof EFloat>[0]) {
+export class Radian extends Unit {
+    constructor(value: ConstructorParameters<typeof Unit>[0]) {
         super(value);
     }
 

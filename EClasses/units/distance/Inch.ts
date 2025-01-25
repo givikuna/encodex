@@ -1,10 +1,11 @@
 import { EFloat } from "../../EFloat";
+import { Unit } from "../Unit";
 import { Foot } from "./Foot";
 import { Meter } from "./Meter";
 import { Mile } from "./Mile";
 import { Yard } from "./Yard";
 
-export class Inch extends EFloat {
+export class Inch extends Unit {
     constructor(value: ConstructorParameters<typeof EFloat>[0]) {
         super(value);
     }
