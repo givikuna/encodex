@@ -1,0 +1,34 @@
+export class FILOStack<T> {
+    private m_size: number;
+    private stack: T[];
+
+    constructor(m_size: number, stack?: T[]) {
+        this.m_size = m_size;
+        this.stack = stack || [];
+    }
+
+    push(item: T) {
+        if (this.isFull()) throw new Error("Stack is full");
+        this.stack.push(item);
+    }
+
+    pop(): T | undefined {
+        return this.stack.pop();
+    }
+
+    top(): T | undefined {
+        return this.stack[this.stack.length - 1];
+    }
+
+    size(): number {
+        return this.stack.length;
+    }
+
+    isEmpty(): boolean {
+        return this.stack.length === 0;
+    }
+
+    isFull(): boolean {
+        return this.size() >= this.m_size;
+    }
+}
