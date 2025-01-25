@@ -1,0 +1,19 @@
+{
+  "name": "encodex",
+  "version": "1.0.0",
+  "description": "a dumb answer to extending the functionality of your typescript project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/givikuna/encodex.git"
+  },
+  "author": "givikuna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/givikuna/encodex/issues"
+  },
+  "homepage": "https://github.com/givikuna/encodex#readme"
+}
