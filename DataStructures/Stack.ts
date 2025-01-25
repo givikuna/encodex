@@ -1,9 +1,9 @@
 export class FILOStack<T> {
-    private m_size: number;
+    private maxSize: number;
     private stack: T[];
 
-    constructor(m_size: number, stack?: T[]) {
-        this.m_size = m_size;
+    constructor(stack?: T[], maxSize?: number) {
+        this.maxSize = maxSize || Infinity;
         this.stack = stack || [];
     }
 
@@ -29,6 +29,6 @@ export class FILOStack<T> {
     }
 
     isFull(): boolean {
-        return this.size() >= this.m_size;
+        return this.size() >= this.maxSize;
     }
 }
