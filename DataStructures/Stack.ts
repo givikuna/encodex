@@ -1,4 +1,4 @@
-export class FILOStack<T> {
+export class Stack<T> {
     private maxSize: number;
     private stack: T[];
 
