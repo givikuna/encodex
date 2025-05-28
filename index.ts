@@ -1,10 +1,9 @@
 import * as Structure from "./DataStructures";
 import * as Interface from "./Interfaces";
-import * as Func from "./Utilities/Func";
-import * as Default from "./Utilities/Default";
 import * as Maths from "./Maths";
 import * as Type from "./Types";
 import * as Sorting from "./Sorting";
 import * as Monad from "./Monads";
+import * as Util from "./Utilities";
 
-export { Structure, Interface, Func, Default, Maths, Type, Sorting, Monad };
+export { Structure, Interface, Maths, Type, Sorting, Monad, Util };

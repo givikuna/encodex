@@ -1,5 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BooleanAlgebra = void 0;
+exports.LinearAlgebra = exports.SetAlgebra = exports.BitwiseLogic = exports.BooleanAlgebra = void 0;
+const LinearAlgebra = require("./LinearAlgebra");
+exports.LinearAlgebra = LinearAlgebra;
 var BooleanAlgebra_1 = require("./Functions/BooleanAlgebra");
 Object.defineProperty(exports, "BooleanAlgebra", { enumerable: true, get: function () { return BooleanAlgebra_1.BooleanAlgebra; } });
+var BitwiseLogic_1 = require("./Functions/BitwiseLogic");
+Object.defineProperty(exports, "BitwiseLogic", { enumerable: true, get: function () { return BitwiseLogic_1.BitwiseLogic; } });
+var SetAlgebra_1 = require("./Functions/SetAlgebra");
+Object.defineProperty(exports, "SetAlgebra", { enumerable: true, get: function () { return SetAlgebra_1.SetAlgebra; } });

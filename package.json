@@ -1,6 +1,6 @@
 {
   "name": "@givi-tsvariani/encodex",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a dumb answer to extending the functionality of your typescript project",
   "main": "index.js",
   "scripts": {
