@@ -1,6 +1,6 @@
 {
-  "name": "encodex",
-  "version": "1.0.0",
+  "name": "@givi-tsvariani/encodex",
+  "version": "1.0.1",
   "description": "a dumb answer to extending the functionality of your typescript project",
   "main": "index.js",
   "scripts": {
@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/givikuna/encodex/issues"
   },
-  "homepage": "https://github.com/givikuna/encodex#readme"
+  "homepage": "https://github.com/givikuna/encodex#readme",
+  "dependencies": {
+    "@types/mathjs": "^9.4.1",
+    "mathjs": "^14.4.0"
+  }
 }
