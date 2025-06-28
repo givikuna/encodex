@@ -1,71 +1,70 @@
 import { Collection } from "../../Interfaces/Collection";
-
+import { Nullable } from "../../Types";
 import { Comparator } from "../../Types/Comparator";
-
 import { Default } from "../../Utilities/Default";
 
 export class Stack<T> implements Collection<T>, Iterable<T> {
     private items: T[] = [];
     private comparator: Comparator<T>;
 
-    constructor(initialItems?: T[], comparator?: Comparator<T>) {
+    public constructor(initialItems?: T[], comparator?: Comparator<T>) {
         if (initialItems) {
             this.items = [...initialItems];
         }
         this.comparator = comparator ?? Default.comparator<T>;
     }
 
-    push(item: T): void {
+    public push(item: T): void {
         this.items.push(item);
     }
 
-    pop(): T | undefined {
-        return this.items.pop();
+    public pop(): Nullable<T> {
+        return this.items.pop() ?? null;
     }
 
-    peek(): T | undefined {
-        return this.items[this.items.length - 1];
+    public peek(): Nullable<T> {
+        return this.items[this.items.length - 1] ?? null;
     }
 
-    size(): number {
+    public size(): number {
         return this.items.length;
     }
 
-    isEmpty(): boolean {
+    public isEmpty(): boolean {
         return this.items.length === 0;
     }
 
-    clear(): void {
-        this.items.length = 0;
+    public clear(): void {
+        this.items = [];
     }
 
-    clone(): Stack<T> {
+    public clone(): Stack<T> {
         return new Stack([...this.items]);
     }
 
-    toArray(): T[] {
+    public toArray(): T[] {
         return [...this.items];
     }
 
-    reverse(): void {
+    public reverse(): void {
         this.items.reverse();
     }
 
-    reversed(): Stack<T> {
+    public reversed(): Stack<T> {
         const clone: Stack<T> = this.clone();
         clone.reverse();
         return clone;
     }
 
-    forEach(callback: (item: T, index?: number) => void): void {
+    public forEach(callback: (item: T, index?: number) => void): void {
         [...this.items].reverse().forEach(callback);
     }
 
-    map<U>(callback: (item: T, index?: number) => U): Stack<U> {
+    public map<U>(callback: (item: T, index?: number) => U): Stack<U> {
         return new Stack([...this.items].map(callback));
     }
 
-    includes(value: T): boolean {
+    public includes(value: T): boolean {
         for (let i: number = 0; i < this.items.length; i++) {
             if (this.comparator(value, this.items[i])) {
                 return true;
@@ -74,15 +73,15 @@ export class Stack<T> implements Collection<T>, Iterable<T> {
         return false;
     }
 
-    filter(predicate: (item: T, index?: number) => boolean): Stack<T> {
+    public filter(predicate: (item: T, index?: number) => boolean): Stack<T> {
         return new Stack([...this.items].filter(predicate));
     }
 
-    reject(predicate: (item: T, index?: number) => boolean): Stack<T> {
+    public reject(predicate: (item: T, index?: number) => boolean): Stack<T> {
         return this.filter((item: T, index?: number) => !predicate(item, index));
     }
 
-    reduce<U>(callback: (accumulator: U, item: T, index?: number) => U, initial: U): U {
+    public reduce<U>(callback: (accumulator: U, item: T, index?: number) => U, initial: U): U {
         return [...this.items].reverse().reduce(callback, initial);
     }
 

@@ -5,4 +5,3 @@ export { Filterable } from "./Filterable";
 export { Mappable } from "./Mappable";
 export { Reducible } from "./Reducible";
 export { Reversible } from "./Reversible";
-export { Structure } from "./Structure";

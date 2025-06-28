@@ -1,3 +1,4 @@
+import { Nullable } from "../../Types";
 import { Comparator } from "../../Types/Comparator";
 
 import { Default } from "../../Utilities/Default";
@@ -6,25 +7,25 @@ export class MinHeap<T> {
     private heap: T[] = [];
     private comparator: Comparator<T>;
 
-    constructor(comparator?: (a: T, b: T) => number) {
+    public constructor(comparator?: (a: T, b: T) => number) {
         this.comparator = comparator ?? Default.comparator;
     }
 
-    size(): number {
+    public size(): number {
         return this.heap.length;
     }
 
-    peek(): T | undefined {
-        return this.heap[0];
+    public peek(): Nullable<T> {
+        return this.heap[0] ?? null;
     }
 
-    insert(value: T): void {
+    public insert(value: T): void {
         this.heap.push(value);
         this.bubbleUp();
     }
 
-    extract(): T | undefined {
-        if (this.heap.length === 0) return undefined;
+    public extract(): Nullable<T> {
+        if (this.heap.length === 0) return null;
         const top = this.heap[0];
         const end = this.heap.pop()!;
         if (this.heap.length > 0) {
@@ -78,7 +79,7 @@ export class MinHeap<T> {
         this.heap[index] = element;
     }
 
-    toArray(): T[] {
+    public toArray(): T[] {
         return [...this.heap];
     }
 }

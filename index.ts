@@ -1,6 +1,6 @@
 import * as Structure from "./DataStructures";
 import * as Interface from "./Interfaces";
-import * as Maths from "./Maths";
+import * as Maths from "./Maths/Algebras";
 import * as Type from "./Types";
 import * as Sorting from "./Sorting";
 import * as Monad from "./Monads";

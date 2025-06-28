@@ -21,7 +21,7 @@ export class LinkedList<T> implements Collection<T>, Iterable<T> {
     private length: number = 0;
     private comparator: Comparator<T>;
 
-    constructor(initialItems?: T[], comparator?: Comparator<T>) {
+    public constructor(initialItems?: T[], comparator?: Comparator<T>) {
         if (initialItems) {
             this.head = new LLNode(initialItems[0], null);
             let cur: LLNode<T> = this.head;
@@ -33,7 +33,7 @@ export class LinkedList<T> implements Collection<T>, Iterable<T> {
         this.comparator = comparator ?? Default.comparator<T>;
     }
 
-    append(value: T): void {
+    public append(value: T): T {
         const node: LLNode<T> = new LLNode(value);
         if (!this.head) {
             this.head = this.tail = node;
@@ -42,23 +42,25 @@ export class LinkedList<T> implements Collection<T>, Iterable<T> {
             this.tail = node;
         }
         this.length++;
+        return value;
     }
 
-    prepend(value: T): void {
+    public prepend(value: T): T {
         const node: LLNode<T> = new LLNode(value, this.head);
         this.head = node;
         if (!this.tail) this.tail = node;
         this.length++;
+        return value;
     }
 
-    remove(value: T): boolean {
-        if (!this.head) return false;
+    public remove(value: T): Nullable<T> {
+        if (!this.head) return null;
 
         if (this.head.value === value) {
             this.head = this.head.next;
             if (!this.head) this.tail = null;
             this.length--;
-            return true;
+            return value;
         }
 
         let current: LLNode<T> = this.head;
@@ -70,24 +72,24 @@ export class LinkedList<T> implements Collection<T>, Iterable<T> {
             if (current.next === this.tail) this.tail = current;
             current.next = current.next.next;
             this.length--;
-            return true;
+            return value;
         }
 
-        return false;
+        return null;
     }
 
-    get(index: number): T | undefined {
-        if (index < 0 || index >= this.length) return undefined;
+    public get(index: number): Nullable<T> {
+        if (index < 0 || index >= this.length) return null;
         let current: Nullable<LLNode<T>> = this.head;
         let i = 0;
         while (i < index && current) {
             current = current.next;
             i++;
         }
-        return current?.value;
+        return (current ?? { value: null }).value;
     }
 
-    findIndex(predicate: (value: T, index?: number) => boolean): number {
+    public findIndex(predicate: (value: T, index?: number) => boolean): number {
         let current: Nullable<LLNode<T>> = this.head;
         let i: number = 0;
         while (current) {
@@ -98,11 +100,11 @@ export class LinkedList<T> implements Collection<T>, Iterable<T> {
         return -1;
     }
 
-    includes(value: T): boolean {
+    public includes(value: T): boolean {
         return !(this.findIndex((v: T): boolean => this.comparator(value, v) === 0) === -1);
     }
 
-    toArray(): T[] {
+    public toArray(): T[] {
         const arr: T[] = [];
         let current: Nullable<LLNode<T>> = this.head;
         while (current) {
@@ -112,26 +114,26 @@ export class LinkedList<T> implements Collection<T>, Iterable<T> {
         return arr;
     }
 
-    clear(): void {
+    public clear(): void {
         this.head = this.tail = null;
         this.length = 0;
     }
 
-    size(): number {
+    public size(): number {
         return this.length;
     }
 
-    isEmpty(): boolean {
+    public isEmpty(): boolean {
         return this.length === 0;
     }
 
-    clone(): LinkedList<T> {
+    public clone(): LinkedList<T> {
         const newList: LinkedList<T> = new LinkedList<T>();
         for (const item of this) newList.append(item);
         return newList;
     }
 
-    map<U>(callback: (item: T, index?: number) => U): LinkedList<U> {
+    public map<U>(callback: (item: T, index?: number) => U): LinkedList<U> {
         const ll: LinkedList<U> = new LinkedList<U>();
 
         let cur: Nullable<LLNode<T>> = this.head;
@@ -143,7 +145,7 @@ export class LinkedList<T> implements Collection<T>, Iterable<T> {
         return ll;
     }
 
-    filter(callback: (item: T, index?: number) => boolean): LinkedList<T> {
+    public filter(callback: (item: T, index?: number) => boolean): LinkedList<T> {
         const ll: LinkedList<T> = new LinkedList<T>();
         let cur: Nullable<LLNode<T>> = this.head;
 
@@ -157,15 +159,15 @@ export class LinkedList<T> implements Collection<T>, Iterable<T> {
         return ll;
     }
 
-    reject(predicate: (item: T, index?: number) => boolean): LinkedList<T> {
+    public reject(predicate: (item: T, index?: number) => boolean): LinkedList<T> {
         return this.filter((item: T, index?: number) => !predicate(item, index));
     }
 
-    reduce<U>(callback: (accumulator: U, item: T, index?: number) => U, initial: U): U {
+    public reduce<U>(callback: (accumulator: U, item: T, index?: number) => U, initial: U): U {
         return [...this.toArray()].reduce(callback, initial);
     }
 
-    reverse(): void {
+    public reverse(): void {
         let cur: Nullable<LLNode<T>> = this.head;
         let prev: Nullable<LLNode<T>> = null;
         let next: Nullable<LLNode<T>>;
@@ -180,7 +182,7 @@ export class LinkedList<T> implements Collection<T>, Iterable<T> {
         this.head = prev;
     }
 
-    reversed(): LinkedList<T> {
+    public reversed(): LinkedList<T> {
         const clone: LinkedList<T> = this.clone();
         clone.reverse();
         return clone;

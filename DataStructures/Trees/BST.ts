@@ -21,7 +21,7 @@ export class BST<T> {
         this.comparator = comparator ?? Default.comparator;
     }
 
-    insert(key: T): void {
+    public insert(key: T): void {
         this.root = this._insert(this.root, key);
     }
 
@@ -40,7 +40,7 @@ export class BST<T> {
         return node;
     }
 
-    contains(key: T): boolean {
+    public contains(key: T): boolean {
         return this._contains(this.root, key);
     }
 
@@ -59,7 +59,7 @@ export class BST<T> {
         return true;
     }
 
-    remove(key: T): void {
+    public remove(key: T): void {
         this.root = this._remove(this.root, key);
     }
 

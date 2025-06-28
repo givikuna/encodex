@@ -1,31 +1,32 @@
 import { MinHeap } from "./MinHeap";
 
 import { Default } from "../../Utilities/Default";
+import { Nullable } from "../../Types";
 
 export class MaxHeap<T> {
     private heap: MinHeap<T>;
 
-    constructor(comparator?: (a: T, b: T) => number) {
-        this.heap = new MinHeap<T>((a, b) => (comparator ? -comparator(a, b) : Default.comparator(a, b)));
+    public constructor(comparator: (a: T, b: T) => number = Default.comparator) {
+        this.heap = new MinHeap<T>((a, b) => -comparator(a, b));
     }
 
-    get size(): number {
+    public size(): number {
         return this.heap.size();
     }
 
-    peek(): T | undefined {
+    public peek(): Nullable<T> {
         return this.heap.peek();
     }
 
-    insert(value: T): void {
+    public insert(value: T): void {
         this.heap.insert(value);
     }
 
-    extract(): T | undefined {
+    public extract(): Nullable<T> {
         return this.heap.extract();
     }
 
-    toArray(): T[] {
+    public toArray(): T[] {
         return this.heap.toArray();
     }
 }

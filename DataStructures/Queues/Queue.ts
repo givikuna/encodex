@@ -1,4 +1,5 @@
 import { Collection } from "../../Interfaces/Collection";
+import { Nullable } from "../../Types";
 
 import { Comparator } from "../../Types/Comparator";
 
@@ -8,64 +9,64 @@ export class Queue<T> implements Collection<T>, Iterable<T> {
     private items: T[] = [];
     private comparator: Comparator<T>;
 
-    constructor(initialItems?: T[], comparator?: Comparator<T>) {
+    public constructor(initialItems?: T[], comparator?: Comparator<T>) {
         if (initialItems) {
             this.items = initialItems;
         }
         this.comparator = comparator ?? Default.comparator<T>;
     }
 
-    enqueue(item: T): void {
+    public enqueue(item: T): void {
         this.items.push(item);
     }
 
-    dequeue(): T | undefined {
-        return this.items.shift();
+    public dequeue(): Nullable<T> {
+        return this.items.shift() ?? null;
     }
 
-    peek(): T | undefined {
-        return this.items[0];
+    public peek(): Nullable<T> {
+        return this.items[0] ?? null;
     }
 
-    last(): T | undefined {
-        return this.items[this.items.length - 1];
+    public last(): Nullable<T> {
+        return this.items[this.items.length - 1] ?? null;
     }
 
-    isEmpty(): boolean {
+    public isEmpty(): boolean {
         return this.items.length === 0;
     }
 
-    size(): number {
+    public size(): number {
         return this.items.length;
     }
 
-    clear(): void {
+    public clear(): void {
         this.items.length = 0;
     }
 
-    toArray(): T[] {
+    public toArray(): T[] {
         return [...this.items];
     }
 
-    clone(): Queue<T> {
+    public clone(): Queue<T> {
         return new Queue(this.items);
     }
 
-    reverse(): void {
+    public reverse(): void {
         this.items.reverse();
     }
 
-    reversed(): Queue<T> {
+    public reversed(): Queue<T> {
         const clone: Queue<T> = this.clone();
         clone.reverse();
         return clone;
     }
 
-    findIndex(predicate: (item: T, index?: number) => boolean): number {
+    public findIndex(predicate: (item: T, index?: number) => boolean): number {
         return this.items.findIndex(predicate);
     }
 
-    includes(value: T): boolean {
+    public includes(value: T): boolean {
         for (let i: number = 0; i < this.items.length; i++) {
             if (this.comparator(value, this.items[i]) == 0) {
                 return true;
@@ -74,7 +75,7 @@ export class Queue<T> implements Collection<T>, Iterable<T> {
         return false;
     }
 
-    remove(predicate: (item: T, index?: number) => boolean): boolean {
+    public remove(predicate: (item: T, index?: number) => boolean): boolean {
         const index: number = this.findIndex(predicate);
         if (index != -1) {
             this.items.splice(index, -1);
@@ -83,7 +84,7 @@ export class Queue<T> implements Collection<T>, Iterable<T> {
         return false;
     }
 
-    removeAll(predicate: (item: T, index?: number) => boolean): number {
+    public removeAll(predicate: (item: T, index?: number) => boolean): number {
         let count: number = 0;
         this.items = this.items.filter((item: T, index: number): boolean => {
             const keep: boolean = !predicate(item, index);
@@ -93,23 +94,23 @@ export class Queue<T> implements Collection<T>, Iterable<T> {
         return count;
     }
 
-    forEach(callback: (item: T, index?: number) => void): void {
+    public forEach(callback: (item: T, index?: number) => void): void {
         this.items.forEach(callback);
     }
 
-    map<U>(callback: (item: T, index?: number) => U): Queue<U> {
+    public map<U>(callback: (item: T, index?: number) => U): Queue<U> {
         return new Queue([...this.items].map(callback));
     }
 
-    filter(predicate: (item: T, index?: number) => boolean): Queue<T> {
+    public filter(predicate: (item: T, index?: number) => boolean): Queue<T> {
         return new Queue([...this.items].filter(predicate));
     }
 
-    reject(predicate: (item: T, index?: number) => boolean): Queue<T> {
+    public reject(predicate: (item: T, index?: number) => boolean): Queue<T> {
         return this.filter((item: T, index?: number) => !predicate(item, index));
     }
 
-    reduce<U>(callback: (accumulator: U, item: T, index?: number) => U, initial: U): U {
+    public reduce<U>(callback: (accumulator: U, item: T, index?: number) => U, initial: U): U {
         return [...this.items].reduce(callback, initial);
     }
 

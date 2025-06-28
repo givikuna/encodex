@@ -3,19 +3,19 @@ import { BST, BSTNode } from "./BST";
 import { Nullable } from "../../Types";
 import { Comparator } from "../../Types/Comparator";
 
-enum Color {
+enum LLRBColor {
     RED,
     BLACK,
 }
 
 export class LLRBNode<T> extends BSTNode<T> {
-    public color: Color = Color.RED;
+    public color: LLRBColor = LLRBColor.RED;
     public override left: Nullable<LLRBNode<T>>;
     public override right: Nullable<LLRBNode<T>>;
 
     constructor(
         key: T,
-        color: Color = Color.RED,
+        color: LLRBColor = LLRBColor.RED,
         left: Nullable<LLRBNode<T>> = null,
         right: Nullable<LLRBNode<T>> = null,
     ) {
@@ -35,7 +35,7 @@ export class LLRB<T> extends BST<T> {
 
     override insert(key: T): void {
         this.root = this._insert(this.root, key);
-        if (this.root) this.root.color = Color.BLACK;
+        if (this.root) this.root.color = LLRBColor.BLACK;
     }
 
     protected override _insert(node: LLRBNode<T> | null, key: T): LLRBNode<T> {
@@ -59,14 +59,14 @@ export class LLRB<T> extends BST<T> {
             node = this.rotateRight(node);
         }
         if (this.isRed(node.left) && this.isRed(node.right)) {
-            this.flipColors(node);
+            this.flipLLRBColors(node);
         }
 
         return node;
     }
 
     protected isRed(node: LLRBNode<T> | null): boolean {
-        return node?.color === Color.RED;
+        return node?.color === LLRBColor.RED;
     }
 
     protected rotateLeft(h: LLRBNode<T>): LLRBNode<T> {
@@ -74,7 +74,7 @@ export class LLRB<T> extends BST<T> {
         h.right = x.left;
         x.left = h;
         x.color = h.color;
-        h.color = Color.RED;
+        h.color = LLRBColor.RED;
         return x;
     }
 
@@ -83,17 +83,17 @@ export class LLRB<T> extends BST<T> {
         h.left = x.right;
         x.right = h;
         x.color = h.color;
-        h.color = Color.RED;
+        h.color = LLRBColor.RED;
         return x;
     }
 
-    protected flipColors(h: LLRBNode<T>): void {
-        h.color = Color.RED;
+    protected flipLLRBColors(h: LLRBNode<T>): void {
+        h.color = LLRBColor.RED;
         if (h.left) {
-            h.left.color = Color.BLACK;
+            h.left.color = LLRBColor.BLACK;
         }
         if (h.right) {
-            h.right.color = Color.BLACK;
+            h.right.color = LLRBColor.BLACK;
         }
     }
 
@@ -136,20 +136,20 @@ export class LLRB<T> extends BST<T> {
     }
 
     protected moveRedLeft(h: LLRBNode<T>): LLRBNode<T> {
-        this.flipColors(h);
+        this.flipLLRBColors(h);
         if (this.isRed((h.right as LLRBNode<T>)?.left)) {
             h.right = this.rotateRight(h.right as LLRBNode<T>);
             h = this.rotateLeft(h);
-            this.flipColors(h);
+            this.flipLLRBColors(h);
         }
         return h;
     }
 
     protected moveRedRight(h: LLRBNode<T>): LLRBNode<T> {
-        this.flipColors(h);
+        this.flipLLRBColors(h);
         if (this.isRed((h.left as LLRBNode<T>)?.left)) {
             h = this.rotateRight(h);
-            this.flipColors(h);
+            this.flipLLRBColors(h);
         }
         return h;
     }
@@ -162,7 +162,7 @@ export class LLRB<T> extends BST<T> {
             h = this.rotateRight(h);
         }
         if (this.isRed(h.left) && this.isRed(h.right)) {
-            this.flipColors(h);
+            this.flipLLRBColors(h);
         }
         return h;
     }

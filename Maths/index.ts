@@ -1,7 +1,4 @@
-import * as LinearAlgebra from "./LinearAlgebra";
+import * as Algebras from "./Algebras";
 
-export { BooleanAlgebra } from "./Functions/BooleanAlgebra";
-export { BitwiseLogic } from "./Functions/BitwiseLogic";
-export { SetAlgebra } from "./Functions/SetAlgebra";
-
-export { LinearAlgebra };
+export { Algebras };
+export { Constants } from "./Constants/Constants";

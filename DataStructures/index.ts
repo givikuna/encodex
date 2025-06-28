@@ -1,3 +1,6 @@
+export { Digraph } from "./Graphs/Digraph";
+export { UndirectedGraph } from "./Graphs/UndirectedGraph";
+
 export { MinHeap } from "./Heaps/MinHeap";
 export { MaxHeap } from "./Heaps/MaxHeap";
 
