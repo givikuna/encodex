@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Util = exports.Monad = exports.Sorting = exports.Type = exports.Maths = exports.Interface = exports.Structure = void 0;
+const Structure = require("./DataStructures");
+exports.Structure = Structure;
+const Interface = require("./Interfaces");
+exports.Interface = Interface;
+const Maths = require("./Maths/Algebras");
+exports.Maths = Maths;
+const Type = require("./Types");
+exports.Type = Type;
+const Sorting = require("./Sorting");
+exports.Sorting = Sorting;
+const Monad = require("./Monads");
+exports.Monad = Monad;
+const Util = require("./Utilities");
+exports.Util = Util;
