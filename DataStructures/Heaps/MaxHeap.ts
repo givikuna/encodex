@@ -1,7 +1,7 @@
 import { MinHeap } from "./MinHeap";
 
 import { Default } from "../../Utilities/Default";
-import { Nullable } from "../../Types";
+type Nullable<T> = T | null;
 
 export class MaxHeap<T> {
     private heap: MinHeap<T>;

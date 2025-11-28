@@ -1,4 +1,4 @@
-import { Nullable } from "../../Types";
+type Nullable<T> = T | null;
 
 export class Digraph<T> {
     private vertices: { [id: string]: T };

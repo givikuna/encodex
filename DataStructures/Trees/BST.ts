@@ -1,5 +1,6 @@
 import { Default } from "../../Utilities/Default";
-import { Comparator, Nullable } from "../../Types";
+type Comparator<T> = (a: T, b: T) => number;
+type Nullable<T> = T | null;
 
 export class BSTNode<T> {
     public key: T;

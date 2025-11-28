@@ -1,7 +1,7 @@
 import { Collection } from "../../Interfaces/Collection";
 
-import { Comparator } from "../../Types/Comparator";
-import { Nullable } from "../../Types/Nullable";
+type Comparator<T> = (a: T, b: T) => number;
+type Nullable<T> = T | null;
 
 import { Default } from "../../Utilities/Default";
 

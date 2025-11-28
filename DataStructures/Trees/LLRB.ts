@@ -1,7 +1,7 @@
 import { BST, BSTNode } from "./BST";
 
-import { Nullable } from "../../Types";
-import { Comparator } from "../../Types/Comparator";
+type Comparator<T> = (a: T, b: T) => number;
+type Nullable<T> = T | null;
 
 enum LLRBColor {
     RED,

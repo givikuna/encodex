@@ -1,11 +1,10 @@
-import { Nullable } from "../../Types";
-import { Comparator } from "../../Types/Comparator";
+type Nullable<T> = T | null;
 
 import { Default } from "../../Utilities/Default";
 
 export class MinHeap<T> {
     private heap: T[] = [];
-    private comparator: Comparator<T>;
+    private comparator: (a: T, b: T) => number;
 
     public constructor(comparator?: (a: T, b: T) => number) {
         this.comparator = comparator ?? Default.comparator;

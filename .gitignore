@@ -48,3 +48,10 @@ Utilities/Func.js
 Utilities/index.js
 Utilities/List.js
 Utilities/Str.js
+Utilities/Util.js
+Sorting/Sorting.js
+Maths/Maths.js
+Maths/Algebras/Algebras.js
+Maths/SetAlgebra/SetAlgebra.js
+Maths/LinearAlgebra/LinearAlgebra.js
+DataStructures/Structure.js
