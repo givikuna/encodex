@@ -1,5 +1,3 @@
-import { Nullable } from "../../Types";
-import { Default } from "../../Utilities";
 import { MaxHeap } from "../Heaps/MaxHeap";
 
 export class PriorityQueue<T> {
@@ -7,7 +5,7 @@ export class PriorityQueue<T> {
 
     public constructor() {
         this.heap = new MaxHeap((a: { priority: number; data: T }, b: { priority: number; data: T }) =>
-            Default.comparator(a.priority, b.priority),
+            a.priority > b.priority ? 1 : a.priority < b.priority ? -1 : 0,
         );
     }
 
@@ -15,11 +13,11 @@ export class PriorityQueue<T> {
         this.heap.insert({ priority: priority, data: element });
     }
 
-    public extract(): Nullable<T> {
+    public extract(): T | null {
         return (this.heap.extract() ?? { data: null }).data;
     }
 
-    public peek(): Nullable<T> {
+    public peek(): T | null {
         return (this.heap.peek() ?? { data: null }).data;
     }
 

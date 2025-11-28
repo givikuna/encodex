@@ -1,9 +1,13 @@
-import * as Structure from "./DataStructures";
+import { Structure } from "./DataStructures/Structure";
 import * as Interface from "./Interfaces";
-import * as Maths from "./Maths/Algebras";
-import * as Type from "./Types";
-import * as Sorting from "./Sorting";
-import * as Monad from "./Monads";
-import * as Util from "./Utilities";
+import { Maths } from "./Maths/Maths";
+import { Sorting } from "./Sorting/Sorting";
+import { Util } from "./Utilities/Util";
 
-export { Structure, Interface, Maths, Type, Sorting, Monad, Util };
+export class Encodex {
+    public static Structure = Structure;
+    public static Interface = Interface;
+    public static Maths = Maths;
+    public static Sorting = Sorting;
+    public static Util = Util;
+}
