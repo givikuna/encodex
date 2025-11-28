@@ -1,6 +1,6 @@
 import { Default } from "../Utilities/Default";
 
-import { Comparator } from "../Types/Comparator";
+type Comparator<T> = (a: T, b: T) => number;
 
 export function mergeSort<T>(array: T[], compare: Comparator<T> = Default.comparator): T[] {
     if (array.length <= 1) {
