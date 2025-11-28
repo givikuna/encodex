@@ -1,4 +1,4 @@
-import { Comparator } from "../Types";
+type Comparator<T> = (a: T, b: T) => number;
 
 import { Default } from "./Default";
 

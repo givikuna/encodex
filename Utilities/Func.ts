@@ -1,4 +1,6 @@
-import { Reverse } from "../Types";
+export type Reverse<T extends any[]> = T extends [infer First, ...infer Rest]
+    ? [...Reverse<Rest>, First]
+    : [];
 
 export class Func {
     flip<T extends (...args: any[]) => any>(f: T): (...args: Reverse<Parameters<T>>) => ReturnType<T> {
