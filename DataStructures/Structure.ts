@@ -13,7 +13,7 @@ import { BST, BSTNode } from "./Trees/BST";
 import { LLRB, LLRBNode } from "./Trees/LLRB";
 
 export class Structure {
-    public static Digraph = Digraph;
+    public static Digraph: typeof Digraph = Digraph;
 
     public static MinHeap: typeof MinHeap = MinHeap;
     public static MaxHeap: typeof MaxHeap = MaxHeap;

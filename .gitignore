@@ -17,6 +17,7 @@ DataStructures/Stacks/Stack.js
 DataStructures/Trees/BST.js
 DataStructures/Trees/LLRB.js
 DataStructures/Structure.js
+DataStructures/Graphs.MarkovChain.js
 
 Interfaces/Cloneable.js
 Interfaces/Collection.js
@@ -28,7 +29,7 @@ Interfaces/Reducible.js
 Interfaces/Reversible.js
 
 Monads/Either.js
-Monads/index.js
+Monads/Monads.js
 Monads/Maybe.js
 
 Sorting/Sorting.js
@@ -57,6 +58,7 @@ Maths/Algebras/LinearAlgebra/Vector3.js
 Maths/Algebras/LinearAlgebra/VectorN.js
 Maths/Constants/Constants.js
 Maths/index.js
+Maths/Algebras/LinearAlgebra/LinearAlgebra.js
 
 Alternative/Alt.js
 Alternative/EChar.js
