@@ -19,6 +19,6 @@
   "homepage": "https://github.com/givikuna/encodex#readme",
   "dependencies": {
     "@types/mathjs": "^9.4.1",
-    "mathjs": "^14.4.0"
+    "mathjs": "^15.1.1"
   }
 }
