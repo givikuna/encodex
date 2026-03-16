@@ -15,17 +15,17 @@ import { LLRB, LLRBNode } from "./Trees/LLRB";
 export class Structure {
     public static Digraph = Digraph;
 
-    public static MinHeap = MinHeap;
-    public static MaxHeap = MaxHeap;
+    public static MinHeap: typeof MinHeap = MinHeap;
+    public static MaxHeap: typeof MaxHeap = MaxHeap;
 
-    public static LinkedList = LinkedList;
-    public static LLNode = LLNode;
+    public static LinkedList: typeof LinkedList = LinkedList;
+    public static LLNode: typeof LLNode = LLNode;
 
-    public static Queue = Queue;
-    public static Stack = Stack;
+    public static Queue: typeof Queue = Queue;
+    public static Stack: typeof Stack = Stack;
 
-    public static BST = BST;
-    public static BSTNode = BSTNode;
-    public static LLRB = LLRB;
-    public static LLRBNode = LLRBNode;
+    public static BST: typeof BST = BST;
+    public static BSTNode: typeof BSTNode = BSTNode;
+    public static LLRB: typeof LLRB = LLRB;
+    public static LLRBNode: typeof LLRBNode = LLRBNode;
 }

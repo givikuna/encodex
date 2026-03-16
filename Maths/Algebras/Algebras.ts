@@ -4,8 +4,8 @@ import { BitwiseLogic } from "./BitwiseLogic/BitwiseLogic";
 import { SetAlgebra } from "./SetAlgebra/SetAlgebra";
 
 export class Algebras {
-    public static BooleanAlgebra = BooleanAlgebra;
-    public static BitwiseLogic = BitwiseLogic;
-    public static SetAlgebra = SetAlgebra;
-    public static LinearAlgebra = LinearAlgebra;
+    public static BooleanAlgebra: typeof BooleanAlgebra = BooleanAlgebra;
+    public static BitwiseLogic: typeof BitwiseLogic = BitwiseLogic;
+    public static SetAlgebra: typeof SetAlgebra = SetAlgebra;
+    public static LinearAlgebra: typeof LinearAlgebra = LinearAlgebra;
 }

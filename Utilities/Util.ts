@@ -4,8 +4,8 @@ import { List } from "./List";
 import { Str } from "./Str";
 
 export class Util {
-    public static Default = Default;
-    public static Func = Func;
-    public static List = List;
-    public static Str = Str;
+    public static Default: typeof Default = Default;
+    public static Func: typeof Func = Func;
+    public static List: typeof List = List;
+    public static Str: typeof Str = Str;
 }
