@@ -43,4 +43,4 @@ Once the rework is complete, encodex will export the following highly-modular li
 
 ## Contributing
 We are actively looking for contributors to help bring this massive vision to life!
-Please read our **Contributing Guidelines** before opening a PR. It covers our strict typing rules, JSDoc documentation standards, and workflow.
+Please read our [**Contributing Guidelines**](CONTRIBUTING.md) before opening a PR. It covers our strict typing rules, JSDoc documentation standards, and workflow.
