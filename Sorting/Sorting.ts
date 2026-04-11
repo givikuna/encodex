@@ -1,5 +1,3 @@
-import { mergeSort } from "./MergeSort";
-
-export class Sorting {
-    public static mergeSort: typeof mergeSort = mergeSort;
+export namespace Sorting {
+    //
 }
