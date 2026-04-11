@@ -17,5 +17,10 @@
     "url": "https://github.com/givikuna/encodex/issues"
   },
   "homepage": "https://github.com/givikuna/encodex#readme",
-  "dependencies": {}
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^12.3.0",
+    "rollup": "^4.60.1",
+    "tslib": "^2.8.1",
+    "typescript": "^6.0.2"
+  }
 }
