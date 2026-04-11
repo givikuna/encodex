@@ -1,3 +1,4 @@
 *.js linguist-detectable=true
-*.json linguist-detectable=true
 *.ls linguist-detectable=true
+
+*.json linguist-detectable=false
