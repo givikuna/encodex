@@ -31,8 +31,16 @@ We enforce a standard Fork & Pull Request workflow. **Do not make commits direct
 * **Modular Design:** Functions and classes should do one thing and do it well.
 
 ### Language Support
-While this is a TypeScript-first project, we allow contributions written in pure JavaScript, LiveScript, CoffeeScript, PureScript or any other Compile-To-JS language **under one strict condition**:
-* **You MUST include a handwritten `[filename].d.ts` declaration file.** If TypeScript cannot read and validate the types of your module, the PR will be rejected.
+While this is a TypeScript-first project, we allow contributions written in many JavaScript dialects.
+You are only allowed to use the following list of allowed languages:
+* JavaScript
+* TypeScript
+* LiveScript
+
+If you'd like to use another language you must submit an issue requesting support for using that language.
+If language usage is approved but the language does not have support for Jest or Rollup you must make a compatibility layer yourself.
+
+* If you're writing the code in something that isn't TypeScript **you MUST include a handwritten `[filename].d.ts` declaration file.** If TypeScript cannot read and validate the types of your module, the PR will be rejected.
 
 ### Documentation (IntelliSense)
 Every function, class, and complex type must be documented using TSDoc/JSDoc comments. This ensures that users see helpful tooltips when hovering over the code in VSCode.
