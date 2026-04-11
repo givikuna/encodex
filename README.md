@@ -1,2 +1,5 @@
 # encodex
-a dumb answer to extending the functionality of your typescript project
+
+An answer to extending TypeScript's functionality in all possible ways.
+
+Under Construction.
