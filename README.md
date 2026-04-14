@@ -4,7 +4,7 @@
 
 An ambitious answer to extending TypeScript's functionality in all possible ways. Very much still in beta.
 
-## ⚠️ Under Construction (The Great Rework)
+## ⚠️ Under Construction (The Full Rework)
 `encodex` is currently undergoing a complete rewrite from scratch to ensure maximum modularity, strict typing, and proper organization. We are building a massive, modular ecosystem ranging from standard data structures to quantum computing simulations.
 
 ## Installation
