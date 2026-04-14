@@ -11,4 +11,5 @@ export namespace Type {
     export type ElementOf<T> = T extends (infer U)[] ? U : never;
     export type Awaitable<T> = T | Promise<T>;
     export type If<T> = T extends true ? true : false;
+    export type Comparator<T, U> = (x: T, y: U) => -1 | 0 | 1;
 }
