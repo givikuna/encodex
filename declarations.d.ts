@@ -1,4 +1,3 @@
 declare module "*.ls" {
-    const content: any;
-    export default content;
+    export const Str: typeof import("./Utils/Str/Str").Str;
 }

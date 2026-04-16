@@ -1,4 +1,4 @@
-export namespace Str {
+export class Str {
     /**
      * Capitalizes the first letter of a string and converts the rest to lowercase.
      * @param it - The string to capitalize.
@@ -8,7 +8,7 @@ export namespace Str {
      * Str.capitalize('hELLO'); // Returns 'Hello'
      * ```
      */
-    export function capitalize(it: string): string;
+    public static capitalize(it: string): string;
 
     /**
      * Converts a string to Title Case (capitalizes the first letter of each word).
@@ -19,7 +19,7 @@ export namespace Str {
      * Str.title('hello world'); // Returns 'Hello World'
      * ```
      */
-    export function title(it: string): string;
+    public static title(it: string): string;
 
     /**
      * Converts a string to camelCase.
@@ -30,7 +30,7 @@ export namespace Str {
      * Str['camel-case']('hello world'); // Returns 'helloWorld'
      * ```
      */
-    export function camelCase(it: string): string;
+    public static camelCase(it: string): string;
 
     /**
      * Converts a string to kebab-case.
@@ -41,7 +41,7 @@ export namespace Str {
      * Str['kebab-case']('helloWorld'); // Returns 'hello-world'
      * ```
      */
-    export function kebabCase(it: string): string;
+    public static kebabCase(it: string): string;
 
     /**
      * Converts a string to snake_case.
@@ -52,14 +52,14 @@ export namespace Str {
      * Str['snake-case']('helloWorld'); // Returns 'hello_world'
      * ```
      */
-    export function snakeCase(it: string): string;
+    public static snakeCase(it: string): string;
 
     /**
      * Removes whitespace from both ends of a string.
      * @param it - The string to trim.
      * @returns The trimmed string.
      */
-    export function trim(it: string): string;
+    public static trim(it: string): string;
 
     /**
      * Removes whitespace from both ends and collapses internal whitespace to single spaces.
@@ -70,7 +70,7 @@ export namespace Str {
      * Str.supertrim('  hello    world  '); // Returns 'hello world'
      * ```
      */
-    export function supertrim(it: string): string;
+    public static supertrim(it: string): string;
 
     /**
      * Truncates a string to a specific length, adding an omission indicator.
@@ -83,7 +83,7 @@ export namespace Str {
      * Str.trunc('Hello World', 8); // Returns 'Hello...'
      * ```
      */
-    export function trunc(s: string, l: number, o?: string): string;
+    public static trunc(s: string, l: number, o?: string): string;
 
     /**
      * Splits a string into an array of substrings.
@@ -91,7 +91,7 @@ export namespace Str {
      * @param s - The string to split.
      * @returns An array of strings.
      */
-    export function split(se: string | RegExp, s: string): string[];
+    public static split(se: string | RegExp, s: string): string[];
 
     /**
      * Joins an array of strings into a single string.
@@ -99,21 +99,21 @@ export namespace Str {
      * @param xs - The array of strings to join.
      * @returns The joined string.
      */
-    export function join(se: string, xs: string[]): string;
+    public static join(se: string, xs: string[]): string;
 
     /**
      * Reverses a string, properly handling multi-code point characters.
      * @param it - The string to reverse.
      * @returns The reversed string.
      */
-    export function rev(it: string): string;
+    public static rev(it: string): string;
 
     /**
      * Returns the length of the string.
      * @param it - The target string.
      * @returns The number of characters.
      */
-    export function size(it: string): number;
+    public static size(it: string): number;
 
     /*
      * Checks if a string contains a specific substring.
@@ -121,7 +121,7 @@ export namespace Str {
      * @param s - The source string.
      * @returns True if found, false otherwise.
      */
-    export function contains(search: string, s: string): boolean;
+    public static contains(search: string, s: string): boolean;
 
     /**
      * Determines if a value is a palindrome (ignoring non-alphanumeric characters and case).
@@ -132,5 +132,5 @@ export namespace Str {
      * Str.palindrome('A man, a plan, a canal: Panama'); // Returns true
      * ```
      */
-    export function palindrome(it: unknown): boolean;
+    public static palindrome(it: unknown): boolean;
 }

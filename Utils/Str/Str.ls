@@ -1,4 +1,4 @@
-Str =
+export Str =
     capitalize: -->
         if it then ((+) it.0.to-upper-case!, it.slice(1).to-lower-case!) else ''
     title: -->
