@@ -83,4 +83,62 @@ export namespace List {
         if(index >= xs.length || index < -xs.length) return undefined;
         return (index < 0) ? xs[xs.length+index] : xs[index];
     }
+
+    export function len<T>(xs: T[]): number {
+        let a: number = 0;
+        for(const {} of xs){
+            a++;
+        }
+        return a;
+    }
+
+    export function empty<T>(xs: T[]): boolean {
+        return len(xs) == 0;
+    }
+
+    export function rev<T>(xs: T[]): T[] {
+        const a: T[] = [];
+        for (let i = xs.length-1; i >= 0; i--) {
+            a.push(xs[i]);
+        }
+        return a;
+    }
+
+    //uniq
+
+    //sort
+
+    export function concat<T>(...lists: T[][]): T[] {
+        let a: T[] = [];
+        for(const list of lists){
+            for(const x of list){
+                a.push(x);
+            }
+        }
+        return a;
+    }
+
+    //diff
+
+    //intersection
+
+    //union
+
+    export function chunk<T>(xs: T[], n:number): T[][] {
+        if(n == 0) return [];
+        let a: T[][] = [];
+        for(let i = 0; i < xs.length;){
+            let b: T[] = [];
+            for(let j = 0; j < n && i < xs.length; j++){
+                b.push(xs[i]);
+                i++;
+            }
+            a.push(b);
+        }
+        return a;
+    }
+
+    //group
+
+    
 }
