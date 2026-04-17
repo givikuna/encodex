@@ -1,4 +1,9 @@
 export namespace List {
+    export function listEach<T>(list: T[], fn: (val: T, index: number) => void): void {
+        for(let i = 0; i < list.length; i++){
+            fn(list[i],i);
+        }
+    }
     export function map<T, U>(xs: T[], f: (x: T) => U): U[] {
         const a: U[] = [];
         for (let i = 0; i < xs.length; i++) {
@@ -6,6 +11,24 @@ export namespace List {
         }
         return a;
     }
+
+    export function compact<T>(list: (T | null | undefined | false | 0 | "")[]): T[] {
+        const a: T[] = [];
+        for(const x of list) {
+            if(x != null && x != undefined && x != false && x != 0 && x != ""){
+                a.push(x);
+            }
+        }
+        return a;
+    }
+
+    //filter
+
+    //reject
+
+    //partition
+
+    //find
 
     export function tail<T>(xs: T[]): T[] {
         const a: T[] = [];
@@ -104,9 +127,18 @@ export namespace List {
         return a;
     }
 
-    //uniq
+    export function uniq<T>(list: T[]) : T[] {
+        let a: T[] = [];
+        for(const x of list){
+            if(!a.includes(x)) a.push(x)
+        }
+        return a;
+    }
 
-    //sort
+    export function sort<T>(list: T[]) : T[] {
+        let a: T[] = list.sort();
+        return a;
+    }
 
     export function concat<T>(...lists: T[][]): T[] {
         let a: T[] = [];
@@ -118,11 +150,42 @@ export namespace List {
         return a;
     }
 
-    //diff
+    //flatten
 
-    //intersection
+    export function diff<T>(l1: T[],l2: T[]): T[] {
+        let a: T[] = [];
+        let b: T[] = intersection(l1,l2);
+        let c: T[] = union(l1,l2);
+        for(const x of c){
+            if(!b.includes(x)){
+                a.push(x)
+            }
+        }
+        return a;
+    }
 
-    //union
+    export function intersection<T>(l1: T[],l2: T[]): T[] {
+        let a: T[] = [];
+        for(const x of l1){
+            if(l2.includes(x)){
+                a.push(x)
+            }
+        }
+        return a;
+    }
+
+    export function union<T>(l1: T[],l2: T[]): T[] {
+        let a: T[] = [];
+        for(const x of l1){
+            a.push(x)
+        }
+        for(const x of l2){
+            if(!a.includes(x)){
+                a.push(x)
+            }
+        }
+        return a;
+    }
 
     export function chunk<T>(xs: T[], n:number): T[][] {
         if(n == 0) return [];
@@ -140,5 +203,100 @@ export namespace List {
 
     //group
 
-    
+    //and all
+
+    //or any
+
+    export function sum(list: number[]) : number {
+        let a:number = 0;
+        for(const num of list){
+            a += num;
+        }
+        return a
+    }
+
+    export function product(list: number[]) : number {
+        let a:number = 1;
+        for(const num of list){
+            a *= num;
+        }
+        return a
+    }
+
+    export function mean(list: number[]) : number {
+        let a:number = sum(list);
+        let b:number = len(list);
+        return a/b
+    }
+
+    export function max(list: number[]) : number {
+        if(empty(list)) return -1;
+        let a:number = list[0];
+        for(let i = 1; i < list.length; i++) {
+            if(list[i] > a) a = list[i];
+        }
+        return a
+    }
+
+    export function min(list: number[]) : number {
+        if(empty(list)) return -1;
+        let a:number = list[0];
+        for(let i = 1; i < list.length; i++) {
+            if(list[i] < a) a = list[i];
+        }
+        return a
+    }
+
+    export function mem<T>(list: T[], val: T): boolean {
+        for(const a of list){
+            if(a == val) return true
+        }
+        return false
+    }
+
+    export function zip<T, U>(l1: T[], l2: U[]): Array<[T, U]>{
+        let a: Array<[T,U]> = [];
+        let l: number = Math.min(len(l1),len(l2));
+        
+        for(let i = 0; i < l; i++){
+            a.push([l1[i],l2[i]]);
+        }
+
+        return a;
+    }
+
+    export function zipW<T, U, V>(l1: T[], l2: U[], fn: (a: T, b: U) => V): V[] {
+        let a: V[] = [];
+        let l: number = Math.min(len(l1),len(l2));
+        
+        for(let i = 0; i < l; i++){
+            a.push(fn(l1[i],l2[i]));
+        }
+
+        return a
+    }
+
+    export function zipA<T, U>(l1: T[], l2: U[]): Array<[T | undefined, U | undefined]> {
+        let a: Array<[T|undefined,U|undefined]> = [];
+        let l: number = Math.max(len(l1),len(l2));
+        
+        for(let i = 0; i < l; i++){
+            a.push([i < len(l1) ? l1[i] : undefined,i < len(l2) ? l2[i] : undefined]);
+        }
+
+        return a;
+    }
+
+    export function zipAW<T, U, V>(l1: T[], l2: U[], fn: (a: T | undefined, b: U | undefined) => V): V[] {
+        let a: V[] = [];
+        let l: number = Math.max(len(l1),len(l2));
+        
+        for(let i = 0; i < l; i++){
+            a.push(fn(i < len(l1) ? l1[i] : undefined,i < len(l2) ? l2[i] : undefined));
+        }
+
+        return a;
+    }
+
+    //folds and scans
 }
