@@ -1,4 +1,4 @@
-name: Project Automation Manager
+name: Label Automation Manager
 
 on:
     issues:
@@ -15,7 +15,7 @@ jobs:
             issues: write
             pull-requests: write
         steps:
-            - name: Evaluate Conditions and Apply Actions
+            - name: Evaluate Labelling Conditions and Apply the New Labels
               uses: actions/github-script@v7
               with:
                   script: |
