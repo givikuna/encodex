@@ -4,7 +4,9 @@
   "description": "a dumb answer to extending the functionality of your typescript project. Very much still in beta",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "publish": "tsc && npm publish --access public"
   },
   "repository": {
@@ -19,8 +21,12 @@
   "homepage": "https://github.com/givikuna/encodex#readme",
   "devDependencies": {
     "@rollup/plugin-typescript": "^12.3.0",
+    "@types/jest": "^30.0.0",
+    "jest": "^30.3.0",
+    "livescript": "^1.6.0",
     "rollup": "^4.60.1",
     "rollup-plugin-livescript": "^0.1.2",
+    "ts-jest": "^29.4.9",
     "tslib": "^2.8.1",
     "typescript": "^6.0.2"
   }
