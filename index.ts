@@ -1,5 +1,5 @@
-import { Utils } from "./Utils/Utils";
-import { Type as _Type } from "./Type/Type";
+import { Utils } from "./lib/Utils/Utils";
+import { Type as _Type } from "./lib/Type/Type";
 
 export class Encodex {
     public static Utils: typeof Utils = Utils;
